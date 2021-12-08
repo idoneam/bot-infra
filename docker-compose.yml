@@ -1,6 +1,7 @@
 services:
   marty:
     image: ghcr.io/idoneam/canary:latest
+    restart: always
     volumes:
       - type: bind
         source: /TODO/marty/config.ini
@@ -9,8 +10,9 @@ services:
       - /TODO/marty/runtime-data:/canary/data/runtime
   minicrossword:
     image: ghcr.io/idoneam/minicrossword-bot:latest
+    restart: always
     volumes:
       - /TODO/minicrossword/Scoreboard.db:/bot/Scoreboard.db
   reddit_hook:
     image: ghcr.io/idoneam/reddit_hook:main
-
+    restart: always
