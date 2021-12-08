@@ -1,0 +1,17 @@
+version: "3.9"
+services:
+  marty:
+    image: ghcr.io/idoneam/canary:latest
+    volumes:
+      - type: bind
+        source: /TODO/marty/config.ini
+        target: /canary/config/config.ini
+        read_only: true
+      - /TODO/marty/runtime-data:/canary/data/runtime
+  minicrossword:
+    image: ghcr.io/idoneam/minicrossword-bot:latest
+    volumes:
+      - /TODO/minicrossword/Scoreboard.db:/bot/Scoreboard.db
+  reddit_hook:
+    image: ghcr.io/idoneam/reddit_hook:main
+
